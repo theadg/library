@@ -5,9 +5,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
+    <!-- Link font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lexend+Deca&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Link CSS -->
     <link rel="stylesheet" href="./styles/style.css" />
+    <!-- link JS -->
     <script src="./script.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <main>
+      <button class="btn" id="add-book">+ Add Book</button>
+      <div class="book__modal" id="book-modal">
+        <form class="book__form" id="book-form">
+          <input
+            class="book__input"
+            type="text"
+            name="Title"
+            placeholder="Title"
+            id="book-title"
+            required
+          />
+          <input
+            class="book__input"
+            type="text"
+            name="Author"
+            placeholder="Author"
+            id="book-author"
+            required
+          />
+          <input
+            class="book__input"
+            type="number"
+            name=""
+            id="book-pages"
+            placeholder="Pages"
+            required
+          />
+          <div class="book_checkbox">
+            <label for="book-read">Have you Read this Book?</label>
+            <input
+              class="book__checkbox"
+              type="checkbox"
+              name=""
+              id="book-read"
+            />
+          </div>
+          <button class="book__submit" type="submit" id="book-submit">
+            Submit
+          </button>
+        </form>
+      </div>
+
+      <section class="book__container"></section>
+    </main>
+  </body>
 </html>
