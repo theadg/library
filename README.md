@@ -1,6 +1,6 @@
 # Library
 
-This is a solution to the [Project: Library](https://www.theodinproject.com/lessons/node-path-javascript-library). The [Odin Project] (https://www.theodinproject.com/about) provides a free open source coding curriculum that can be taken entirely online. Since its inception, it has helped many students get hired as developers and has assisted countless others in learning enough programming to work on their own personal projects.
+This is a solution to the [Project: Library](https://www.theodinproject.com/lessons/node-path-javascript-library). The [Odin Project](https://www.theodinproject.com/about) provides a free open source coding curriculum that can be taken entirely online. Since its inception, it has helped many students get hired as developers and has assisted countless others in learning enough programming to work on their own personal projects.
 
 ## Overview
 
