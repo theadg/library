@@ -66,6 +66,25 @@ main{
     }
 }
 
+.book__input{
+    font-size: 1rem;
+    appearance: none;
+    border: none;
+    outline: none;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    border-radius: $border-radius/2;
+}
+.material-symbols-outlined{
+    margin-left: auto;
+    padding: 6px;
+    border-radius: $border-radius;
+    &:hover{
+        // background-color: buttonface;
+        background-color: #ecbe18;
+        cursor: pointer;
+    }
+}
 
 .book{
     @include cardStyling();
@@ -95,15 +114,7 @@ main{
     padding: 0 4rem;
 
 
-        .book__input{
-            font-size: 1rem;
-            appearance: none;
-            border: none;
-            outline: none;
-            padding: 0.5rem 1rem;
-            width: 100%;
-            border-radius: $border-radius/2;
-        }
+    
 
         .book__submit{
             width: 100%;
