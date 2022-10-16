@@ -22,6 +22,7 @@ const addBook = document.querySelector("#add-book");
 const bookModal = document.querySelector("#book-modal");
 const submitBtn = document.querySelector("#book-submit");
 const bookContainer = document.querySelector(".book__container");
+
 // inputs
 const bookForm = document.querySelector("#book-form");
 const bookTitle = document.querySelector("#book-title");
@@ -45,6 +46,7 @@ window.onclick = (e) => {
 window.onload = () => {
   createBookElement();
 };
+
 myLibrary.push(Object.create(Book).init("1", "De Guzman", 79, false));
 myLibrary.push(Object.create(Book).init("2", "De Guzman", 79, false));
 myLibrary.push(Object.create(Book).init("3", "De Guzman", 79, false));
@@ -114,16 +116,99 @@ function createBookElement() {
     bookButtons.appendChild(removeBookBtn);
 
     //adding text
-    bookTitleC.textContent = book.author;
-    bookAuthorC.textContent = book.title;
-    bookPagesC.textContent = book.pages;
 
+    // edit button
+    const editBookBtn = document.createElement("span");
+    editBookBtn.classList.add("material-symbols-outlined");
+    editBookBtn.textContent = "edit";
+    //
+    //     const editBookBtn = document.createElement("button");
+    //     editBookBtn.classList.add("book__btn", "material-symbols-outlined");
+    // editBookBtn.textContent = "edit";
+    // save button
+    const saveBookBtn = document.createElement("button");
+    saveBookBtn.classList.add("book__btn");
+    saveBookBtn.textContent = "Save Book";
+
+    // save button
+    const cancelEditBookBtn = document.createElement("button");
+    cancelEditBookBtn.classList.add("book__btn");
+    cancelEditBookBtn.textContent = "Cancel";
+
+    // adding new text elements:
+    const bookTitleEdit = document.createElement("input");
+    bookTitleEdit.setAttribute("type", "text");
+    bookTitleEdit.placeholder = "Title";
+    bookTitleEdit.value = book.author;
+
+    const bookAuthorEdit = document.createElement("input");
+    bookAuthorEdit.setAttribute("type", "text");
+    bookAuthorEdit.placeholder = "Author";
+    bookAuthorEdit.value = book.title;
+
+    const bookPagesEdit = document.createElement("input");
+    bookPagesEdit.setAttribute("type", "number");
+    bookPagesEdit.placeholder = "Pages";
+    bookPagesEdit.value = book.pages;
+
+    editBookBtn.onclick = () => {
+      removeElements(1, 2);
+
+      // TODO: ADD BUTTONS
+      // save button
+
+      //container of new elements:
+      const editComponents = [
+        bookTitleEdit,
+        bookAuthorEdit,
+        bookPagesEdit,
+        saveBookBtn,
+        cancelEditBookBtn,
+      ];
+
+      //adding new buttons
+      editComponents.forEach((component) => {
+        component.required = "true";
+        component.classList.add("book__input");
+        bookCard.appendChild(component);
+      });
+    };
+
+    const removeElements = (start, end) => {
+      const bookCardChildren = Array.from(bookCard.children);
+      for (let i = start; i <= bookCard.childElementCount + end; i++) {
+        bookCard.removeChild(bookCardChildren[i]);
+        console.log(bookCardChildren[i]);
+      }
+    };
+
+    const addDefaultComponents = () => {
+      bookTitleC.textContent = book.author;
+      bookAuthorC.textContent = book.title;
+      bookPagesC.textContent = book.pages;
+      // cancelEditBookBtn.remove();
+      bookCard.appendChild(editBookBtn);
+      bookCard.appendChild(bookTitleC);
+      bookCard.appendChild(bookAuthorC);
+      bookCard.appendChild(bookPagesC);
+      bookCard.appendChild(bookButtons);
+    };
+
+    saveBookBtn.onclick = () => {
+      book.title = bookAuthorEdit.value;
+      book.author = bookTitleEdit.value;
+      book.pages = bookPagesEdit.value;
+
+      removeElements(1, 2);
+      addDefaultComponents();
+    };
+
+    cancelEditBookBtn.onclick = () => {
+      removeElements(1, 3);
+      addDefaultComponents();
+    };
     // adding to element
-    bookCard.appendChild(bookTitleC);
-    bookCard.appendChild(bookAuthorC);
-    bookCard.appendChild(bookPagesC);
-    bookCard.appendChild(bookButtons);
-
+    addDefaultComponents();
     bookContainer.appendChild(bookCard);
     book.set = true;
 
@@ -141,7 +226,4 @@ function createBookElement() {
 
 const removeBook = (index) => {
   myLibrary.splice(index, 1);
-  console.log(`REMOVED AT INDEX: ${index}`);
-
-  // bookContainer.remove(bookContainer.children[index]);
 };
