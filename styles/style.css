@@ -32,6 +32,28 @@ main .btn:hover {
   cursor: pointer;
 }
 
+.book__input {
+  font-size: 1rem;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  outline: none;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.material-symbols-outlined {
+  margin-left: auto;
+  padding: 6px;
+  border-radius: 1rem;
+}
+.material-symbols-outlined:hover {
+  background-color: #ecbe18;
+  cursor: pointer;
+}
+
 .book {
   background-color: #F4D35E;
   height: 350px;
@@ -83,17 +105,6 @@ main .btn:hover {
   width: -moz-fit-content;
   width: fit-content;
   padding: 0 4rem;
-}
-.book__form .book__input {
-  font-size: 1rem;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  border: none;
-  outline: none;
-  padding: 0.5rem 1rem;
-  width: 100%;
-  border-radius: 0.5rem;
 }
 .book__form .book__submit {
   width: 100%;
