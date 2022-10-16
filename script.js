@@ -47,10 +47,10 @@ window.onload = () => {
   createBookElement();
 };
 
-myLibrary.push(Object.create(Book).init("1", "De Guzman", 79, false));
-myLibrary.push(Object.create(Book).init("2", "De Guzman", 79, false));
-myLibrary.push(Object.create(Book).init("3", "De Guzman", 79, false));
-myLibrary.push(Object.create(Book).init("4", "De Guzman", 79, false));
+// myLibrary.push(Object.create(Book).init("1", "De Guzman", 79, false));
+// myLibrary.push(Object.create(Book).init("2", "De Guzman", 79, false));
+// myLibrary.push(Object.create(Book).init("3", "De Guzman", 79, false));
+// myLibrary.push(Object.create(Book).init("4", "De Guzman", 79, false));
 
 bookForm.onsubmit = (e) => {
   myLibrary.push(
@@ -115,19 +115,15 @@ function createBookElement() {
     removeBookBtn.textContent = "Remove Book";
     bookButtons.appendChild(removeBookBtn);
 
-    //adding text
-
     // edit button
     const editBookBtn = document.createElement("span");
     editBookBtn.classList.add("material-symbols-outlined");
     editBookBtn.textContent = "edit";
-    //
-    //     const editBookBtn = document.createElement("button");
-    //     editBookBtn.classList.add("book__btn", "material-symbols-outlined");
-    // editBookBtn.textContent = "edit";
+
     // save button
     const saveBookBtn = document.createElement("button");
     saveBookBtn.classList.add("book__btn");
+    saveBookBtn.style.backgroundColor = "#c5f9d7";
     saveBookBtn.textContent = "Save Book";
 
     // save button
@@ -169,7 +165,7 @@ function createBookElement() {
       //adding new buttons
       editComponents.forEach((component) => {
         component.required = "true";
-        component.classList.add("book__input");
+        component.classList.add("book__input", "text--center");
         bookCard.appendChild(component);
       });
     };
@@ -199,7 +195,7 @@ function createBookElement() {
       book.author = bookTitleEdit.value;
       book.pages = bookPagesEdit.value;
 
-      removeElements(1, 2);
+      removeElements(1, 3);
       addDefaultComponents();
     };
 
